@@ -30,18 +30,17 @@ jobs:
         - npm install -g @angular/cli
         - npm install -g codecov
         - npm install bithound --save-dev
-      before_script:
-        - cd ../
-        - export PYTHONWARNINGS="ignore" 
-        - export FLASK_DEBUG=1
-        - export FLASK_APP=skf/app.py 
-        - export PYTHONPATH=.:$PYTHONPATH
     - stage: unit tests angular
       script:
         - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
         - ng test
     - stage: unit tests python
       script:
+        - cd ../
+        - export PYTHONWARNINGS="ignore" 
+        - export FLASK_DEBUG=1
+        - export FLASK_APP=skf/app.py 
+        - export PYTHONPATH=.:$PYTHONPATH
         - cd ../; coverage run --source=skf setup.py test
     - stage: update quality gates
       after_success:
