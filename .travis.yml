@@ -26,7 +26,7 @@ jobs:
         - npm install -g codecov
         - npm install bithound --save-dev
       script:
-        - cd Angular; ./node_modules/.bin/bithound check git@github.com:blabla1337/skf-flask.git
+        - cd Angular; ./node_modules/.bin/bithound check git@github.com/blabla1337/skf-flask.git
         - ng test
         - cd ../
         - export PYTHONWARNINGS="ignore" 
