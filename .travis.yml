@@ -4,7 +4,8 @@ addons:
 language: python
 sudo: false
 
-
+python:
+  - "3.6"
 
 stages:
   - "python 3.6"
@@ -14,8 +15,6 @@ jobs:
 
   include:
     - stage: python 3.6
-    python:
-      - "3.6"
       before_install:
         - export CHROME_BIN=chromium-browser
         - export DISPLAY=:99.0
@@ -60,8 +59,7 @@ jobs:
 
 
 
-  include:
-    - stage: python 3.7-dev
+  - stage: python 3.7-dev
     python:
       - "3.7-dev"
       before_install:
