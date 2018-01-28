@@ -9,8 +9,9 @@ sudo: false
 
 python:
   - "3.6"
-  allow_failures:
-    - "3.7-dev"
+allow_failures:
+python:
+  - "3.7-dev"
 
 before_install:
   - export CHROME_BIN=chromium-browser
