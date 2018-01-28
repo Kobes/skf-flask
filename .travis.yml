@@ -7,6 +7,12 @@ sudo: false
 python:
   - "3.6"
 
+stages:
+  - "environment setup"
+  - "unit tests angular"
+  - "unit tests python"
+  - "update quality gates"
+  
 jobs:
   include:
     - stage: environment setup
@@ -51,16 +57,6 @@ jobs:
           on_success: always  
           on_failure: always  
           on_start: never           
-    - stage: test staging
-      script: 'curl http://sf-stages-staging.herokuapp.com'
-    - stage: deploy to production
-      script: /bin/true
-      deploy:
-        <<: *heroku
-        app: sf-stages-production
-    - stage: test production
-      script: 'curl http://sf-stages-production.herokuapp.com'
-
 
 #python:
 #  - "3.7-dev"
